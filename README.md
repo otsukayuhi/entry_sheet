@@ -9,3 +9,6 @@ HTML（Pug）形式で記述する履歴書です。
 3. `$ yarn start`
 4. `src/_pug/index.pug`の中身を書き換える
 5. 印刷する（Google Chrome推奨）
+
+## サンプル
+https://entry-sheet-sample.netlify.com/
