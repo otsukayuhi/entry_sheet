@@ -1,0 +1,13 @@
+// mixin
+
+// media query
+@mixin min-md {
+  @media screen and (min-width: $bp-md) {
+    @content;
+  }
+}
+@mixin min-lg {
+  @media screen and (min-width: $bp-lg) {
+    @content;
+  }
+}

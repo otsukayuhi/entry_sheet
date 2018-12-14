@@ -1,0 +1,331 @@
+@media screen {
+
+  h1 {
+    margin: 0 0 0.3em;
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eaecef;
+  }
+
+  h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eaecef;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+
+  h5 {
+    font-size: 0.875em;
+  }
+
+  h6 {
+    font-size: 0.85em;
+    color: #6a737d;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 768px;
+  }
+
+  .name_img {
+    max-width: 100%;
+  }
+
+  .timeTable_item {
+    list-style: none;
+    display: flex;
+
+    & + .timeTable_item {
+      margin-top: 0.5em;
+    }
+
+    p {
+      margin: 0;
+
+      & + p {
+        margin-left: 0.5em;
+      }
+    }
+
+    &.-center {
+      p {
+        font-size: 1.2em;
+        margin: 0.6em 0;
+      }
+    }
+  }
+
+  .u-hide {
+    display: none;
+  }
+}
+
+@media print {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: normal;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .header {
+    margin-bottom: 3.7mm;
+    display: flex;
+    justify-content: space-between;
+    width: percentage(2/3);
+  }
+
+  .title {
+    font-size: 5.4mm;
+    letter-spacing: 1em;
+    font-weight: bold;
+  }
+
+  .date {
+    font-size: 3mm;
+    line-height: 5.4mm;
+  }
+
+  .contents {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding-top: 17.5mm;
+    width: 153.8mm;
+    page-break-after: always;
+  }
+
+  .section {
+    position: relative;
+    width: 100%;
+    border-top: 0.2mm solid #000;
+    border-left: 0.2mm solid #000;
+    border-right: 0.2mm solid #000;
+
+    &:last-child,
+    &.-last {
+      border-bottom: 0.2mm solid #000;
+    }
+
+    .grid & {
+      &:nth-child(n+2) {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .section_ttl {
+    padding: 2.5mm;
+    font-size: 2.5mm;
+
+    .tel & {
+      padding: 1.8mm 2.5mm;
+    }
+  }
+
+  .section_txtContainer {
+    padding: 0 3.8mm 2.5mm;
+    font-size: 2.5mm;
+
+    .tel & {
+      padding: 2.5mm;
+      border-top: dotted 0.2mm #000;
+    }
+
+    .myHope & {
+      padding: 2.5mm 2.5mm 2.5mm 3.8mm;
+      height: 9mm;
+      border-top: 0.2mm solid #000;
+    }
+  }
+
+  [data-ruby]::before {
+    content: ("ふりがな");
+    position: absolute;
+    top: 2mm;
+    left: 2.5mm;
+    font-size: 2.5mm;
+    line-height: 1;
+  }
+
+  [data-ruby]::after {
+    content: attr(data-ruby);
+    position: absolute;
+    top: 2mm;
+    left: calc(2.5mm + 5em);
+    font-size: 2.5mm;
+    line-height: 1;
+  }
+
+  rt {
+    display: none;
+  }
+
+  .name {
+    padding-top: 6.3mm;
+    width: 66.8%;
+  }
+
+  .name_ttl {
+    border-top: dotted 0.2mm #000;
+  }
+
+  .name_txt {
+    font-size: 5.4mm;
+  }
+
+  .name_img {
+    display: block;
+    position: absolute;
+    top: -9.3mm;
+    right: -41.3mm;
+    width: 30mm;
+    height: 40mm;
+  }
+
+  .birthday {
+    width: 50%;
+  }
+
+  .gender {
+    width: 16.8%;
+    border-left: none;
+  }
+
+  .address {
+    padding-top: 6.3mm;
+    width: 75%;
+    min-height: 21.4mm;
+  }
+
+  .address_ttl {
+    border-top: dotted 0.2mm #000;
+  }
+
+  .address_notes {
+    position: absolute;
+    top: 8.3mm;
+    right: 2.5mm;
+    font-size: 2.5mm;
+  }
+
+  .tel {
+    width: 25%;
+    border-left: none;
+  }
+
+  .timeTable_container {
+    margin-top: 6.4mm;
+
+    &+& {
+      margin-top: 0;
+    }
+  }
+
+  .timeTable_ttl {
+    position: relative;
+    margin: 0;
+    text-align: center;
+    font-size: 2.5mm;
+  }
+
+  .timeTable_item {
+    display: flex;
+    min-height: 9mm;
+    border-top: 0.2mm solid #000;
+    font-size: 2.5mm;
+
+    &.-center {
+      text-align: center;
+    }
+
+    &.-right {
+      text-align: right;
+    }
+  }
+
+  .timeTable_list {
+    position: relative;
+  }
+
+  .timeTable_year {
+    padding: 2.5mm 0;
+    width: 13.2mm;
+    text-align: center;
+    border-right: 0.2mm dotted #000;
+  }
+
+  .timeTable_month {
+    padding: 2.5mm 0;
+    width: 9mm;
+    text-align: center;
+    border-right: 0.2mm solid #000;
+  }
+
+  .timeTable_txt {
+    padding: 2.5mm;
+    flex: 1;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: percentage(2/3) percentage(0.4/3) percentage(0.6/3);
+    margin: 6.4mm 0;
+    border-bottom: 0.2mm solid #000;
+  }
+
+  .freeSpace {
+    grid-column: 1;
+    grid-row: 1 / 4;
+  }
+
+  .freeSpace_txt {
+    &+& {
+      margin-top: 0.8em;
+    }
+  }
+
+  .commutingTime {
+    grid-column: 2 / 4;
+    grid-row: 1;
+  }
+
+  .supportFamily {
+    grid-column: 2 / 4;
+    grid-row: 2;
+  }
+}

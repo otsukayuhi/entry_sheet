@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
+
+body {
+  background-color: $color-bg;
+  color: $color-font;
+  -webkit-font-smoothing: $font-smoothing;
+  font-smoothing: $font-smoothing;
+  -webkit-text-size-adjust: 100%;
+  line-height: $line-height;
+  word-wrap: break-word;
+}

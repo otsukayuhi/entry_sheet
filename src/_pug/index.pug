@@ -1,0 +1,226 @@
+-
+  const date = new Date();
+  const yyyy = date.getFullYear();
+  const mm = date.getMonth() +1;
+  const dd = date.getDate();
+
+  const LIST_CAREER = [
+    {year: '', month: '', txt: '学歴', align: 1},
+    {year: '2006年', month: '3月', txt: '県立猫高等学校 卒業'},
+    {year: '2006年', month: '4月', txt: '猫大学 経済学部 入学'},
+    {year: '2010年', month: '3月', txt: '猫大学 経済学部 卒業'},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: '職歴', align: 1},
+    {year: '2010年', month: '4月', txt: '猫株式会社 入社'},
+    {year: '2012年', month: '5月', txt: '一身上の都合により退社'},
+    {year: '2012年', month: '6月', txt: '株式会社猫猫 入社'},
+    {year: '', month: '', txt: '現在に至る'},
+    {year: '', month: '', txt: '以上', align: 2},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''}
+  ];
+
+  const LIST_CAREER_MORE = [
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''}
+  ];
+
+  const LIST_QUALIFICATION = [
+    {year: '2008年', month: '2月', txt: '第一種普通自動車運転免許 取得'},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''},
+    {year: '', month: '', txt: ''}
+  ];
+
+doctype
+html(lang='ja')
+  head
+    include _meta
+
+  body
+    .container
+      .contents
+        header.header
+          h1.title 履歴書
+          time.date(time-date=`${yyyy}-${mm}-${dd}`) #{yyyy}年#{mm}月#{dd}日 現在
+
+        //- 氏名
+        section.section.name
+          h2.section_ttl.name_ttl 氏名
+          .section_txtContainer
+            p.name_txt
+              - const NAME_RUBY = 'ねこやま ねこお';
+              ruby(data-ruby=NAME_RUBY) ねこ山 ねこ夫
+                rt #{NAME_RUBY}
+          img.name_img(src="img.jpg")
+
+        //- 生年月日
+        section.section.birthday
+          h2.section_ttl.birthday_ttl 生年月日
+          .section_txtContainer
+            p.birthday_txt
+              time(time-date="1987-11-17") 1987年 11月 17日生（満 31 歳）
+
+        //- 性別
+        section.section.gender
+          h2.section_ttl.gender_ttl 性別
+          .section_txtContainer
+            p.gender_txt 男
+
+        //- 現住所
+        section.section.address
+          h2.section_ttl.address_ttl 現住所
+          .section_txtContainer
+            p.address_postalCode 〒 160-0022
+            p.address_txt
+              - const ADD_RUBY = 'とうきょうとしんじゅくくしんじゅく3ちょうめ';
+              ruby(data-ruby=ADD_RUBY) 東京都新宿区新宿3丁目
+                rt #{ADD_RUBY}
+
+        section.section.tel
+          h2.section_ttl.tel_ttl 電話番号
+          .section_txtContainer
+            p.tel_txt 000-0000-0000
+
+        //- 連絡先
+        section.section.address.-last
+          h2.section_ttl.address_ttl 連絡先
+          .section_txtContainer
+            p.address_notes （現住所以外に連絡を希望する場合のみ記入）
+
+        //- 連絡先用電話番号
+        - const MORE_TEL = '';
+        if(MORE_TEL === '')
+          section.section.tel.-last.u-hide
+            h2.section_ttl.tel_ttl 電話番号
+            .section_txtContainer
+              p.tel_txt
+        else
+          section.section.tel.-last
+            h2.section_ttl.tel_ttl 電話番号
+            .section_txtContainer
+              p.tel_txt
+
+        //- 学歴・経歴
+        section.section.timeTable_container
+          h2.section_ttl.timeTable_ttl 学歴・経歴（個別にまとめて書く）
+          ul.timeTable_list
+            each item, i in LIST_CAREER
+              if(item.align === 1)
+                li.timeTable_item.-center
+                  p.timeTable_year #{item.year}
+                  p.timeTable_month #{item.month}
+                  p.timeTable_txt #{item.txt}
+              else if(item.align === 2)
+                li.timeTable_item.-right
+                  p.timeTable_year #{item.year}
+                  p.timeTable_month #{item.month}
+                  p.timeTable_txt #{item.txt}
+              else if(item.txt === '')
+                li.timeTable_item.u-hide
+                  p.timeTable_year #{item.year}
+                  p.timeTable_month #{item.month}
+                  p.timeTable_txt #{item.txt}
+              else
+                li.timeTable_item
+                  p.timeTable_year #{item.year}
+                  p.timeTable_month #{item.month}
+                  p.timeTable_txt #{item.txt}
+
+      .contents
+        if(LIST_CAREER_MORE[0].txt === '')
+          section.section.timeTable_container.u-hide
+            h2.section_ttl.timeTable_ttl 学歴・経歴
+            ul.timeTable_list
+              each item, i in LIST_CAREER_MORE
+                if(item.txt === '')
+                  li.timeTable_item.u-hide
+                    p.timeTable_year #{item.year}
+                    p.timeTable_month #{item.month}
+                    p.timeTable_txt #{item.txt}
+                else
+                  li.timeTable_item
+                    p.timeTable_year #{item.year}
+                    p.timeTable_month #{item.month}
+                    p.timeTable_txt #{item.txt}
+        else
+          section.section.timeTable_container
+            h2.section_ttl.timeTable_ttl 学歴・経歴
+            ul.timeTable_list
+              each item, i in LIST_CAREER_MORE
+                if(item.txt === '')
+                  li.timeTable_item.u-hide
+                    p.timeTable_year #{item.year}
+                    p.timeTable_month #{item.month}
+                    p.timeTable_txt #{item.txt}
+                else
+                  li.timeTable_item
+                    p.timeTable_year #{item.year}
+                    p.timeTable_month #{item.month}
+                    p.timeTable_txt #{item.txt}
+
+        //- 免許・資格
+        section.section.timeTable_container.-last
+          h2.section_ttl.timeTable_ttl 免許・資格
+          ul.timeTable_list
+            each item, i in LIST_QUALIFICATION
+              if(item.txt === '')
+                li.timeTable_item.u-hide
+                  p.timeTable_year #{item.year}
+                  p.timeTable_month #{item.month}
+                  p.timeTable_txt #{item.txt}
+              else
+                li.timeTable_item
+                  p.timeTable_year #{item.year}
+                  p.timeTable_month #{item.month}
+                  p.timeTable_txt #{item.txt}
+
+        .grid
+          //- 志望の動機、特技、好きな学科、アピールポイントなど
+          section.section.freeSpace
+            h2.section_ttl.freeSpace_ttl 志望の動機、特技、好きな学科、アピールポイントなど
+            .freeSpace_txtContainer.section_txtContainer
+              p.freeSpace_txt ここに志望動機などを記述します。ここに志望動機などを記述します。ここに志望動機などを記述します。ここに志望動機などを記述します。ここに志望動機などを記述します。ここに志望動機などを記述します。ここに志望動機などを記述します。
+
+          //- 通勤時間
+          section.section.commutingTime
+            h2.section_ttl.commutingTime_ttl 通勤時間
+            .section_txtContainer
+              p.commutingTime_txt 約1時間10分
+
+          //- 扶養家族数
+          section.section.supportFamily
+            h2.section_ttl.supportFamily_ttl 扶養家族数（配偶者を除く）
+            .section_txtContainer
+              p.supportFamily_txt 1人
+
+          //- 配偶者
+          section.section.partner
+            h2.section_ttl.partner_ttl 配偶者
+            .section_txtContainer
+              p.partner_txt 有り
+
+          //- 配偶者の扶養義務
+          section.section.supportDuty.-last
+            h2.section_ttl.supportDuty_ttl 配偶者の扶養義務
+            .section_txtContainer
+              p.supportDuty_txt 有り
+
+        //- 本人希望記入欄
+        section.section.myHope
+          h2.section_ttl.supportDuty_ttl 本人希望記入欄（特に給料・職種・勤務時間・勤務地・その他についての希望などがあれば記入）
+          .section_txtContainer
+            p.supportDuty_txt 貴社規定に従います。
+          .section_txtContainer
+          .section_txtContainer
+          .section_txtContainer
+          .section_txtContainer
