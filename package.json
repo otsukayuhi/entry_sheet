@@ -1,10 +1,6 @@
 {
   "scripts": {
-    "dev:serve": "webpack --mode development --watch & webpack-dev-server",
-    "dev:watch": "webpack --mode development --watch",
-    "dev:build": "webpack --mode development",
-    "pro:build": "webpack --mode production",
-    "deploy": "gh-pages -d dist"
+    "start": "webpack --mode development --watch & webpack-dev-server"
   },
   "dependencies": {
     "sanitize.css": "^8.0.0"
